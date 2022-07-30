@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carrousel index{% endblock %}
+
+{% block body %}
+    <h1>Carrousel index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Alt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carrousel in carrousels %}
+            <tr>
+                <td>{{ carrousel.id }}</td>
+                <td>{{ carrousel.name }}</td>
+                <td>{{ carrousel.titre }}</td>
+                <td>{{ carrousel.description }}</td>
+                <td>{{ carrousel.status ? 'Yes' : 'No' }}</td>
+                <td>{{ carrousel.alt }}</td>
+                <td>
+                    <a href="{{ path('app_carrousel_show', {'id': carrousel.id}) }}">show</a>
+                    <a href="{{ path('app_carrousel_edit', {'id': carrousel.id}) }}">edit</a>
+                    {% if carrousel.status %}
+                        <a href="{{ path('app_valider_carrousel', {'id': carrousel.id}) }}}">Désactiver</a>               
+                    {% else %}
+                        <a href="{{ path('app_valider_carrousel', {'id': carrousel.id}) }}}">Activer</a>
+                    {% endif %}  
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_carrousel_new') }}">Create new</a>
+{% endblock %}

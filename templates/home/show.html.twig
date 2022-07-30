@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+
+	<h1>FICHE PRODUIT</h1>
+
+	{# <p>{{dump(app.request.cookies)}}</p> #}
+
+	<div class="container">
+		<h2 class="titre"> {{produit.marque}}</h2>
+
+		<div class="row">
+			<h5 class="card-title">{{produit.titre}}</h5>
+				<div class="col-3">
+					<div class="card" style="width: 18rem;">
+						<img src="{{asset('images/' ~ produit.img)}}" class="card-img-top" alt="...">
+						<div class="card-body">							
+							<p class="card-text">Réf : {{produit.ref}}</p>
+							<p class="card-text">OS : {{produit.category.name}}</p>
+
+							<p class="card-text">{{produit.description}}</p>
+							<p class="card-text">Prix : {{produit.prixunit}}€</p>
+
+							<a href="{{path('app_add_panier', {'id': produit.id})}}" class="btn btn-primary">COMMANDER</a>
+						</div>
+					</div>
+				</div>
+			
+
+		</div>
+	</div>
+
+{% endblock %}

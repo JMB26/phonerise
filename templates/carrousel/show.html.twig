@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carrousel{% endblock %}
+
+{% block body %}
+    <h1>Carrousel</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ carrousel.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ carrousel.name }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ carrousel.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ carrousel.description }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ carrousel.status ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Alt</th>
+                <td>{{ carrousel.alt }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_carrousel_index') }}">back to list</a>
+
+    <a href="{{ path('app_carrousel_edit', {'id': carrousel.id}) }}">edit</a>
+
+    {{ include('carrousel/_delete_form.html.twig') }}
+{% endblock %}

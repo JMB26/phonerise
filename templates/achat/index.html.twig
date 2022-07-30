@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AchatController!{% endblock %}
+
+{% block body %}
+
+<H1>RECAP ACHAT</H1>
+
+
+	
+
+<table class="table">    
+        <tr>
+            <td>Votre Nom :  {{app.user.nom}}</td>
+        </tr> 
+        <tr>
+            <td>Votre Prenom : {{app.user.nom}}</td>
+        </tr>   
+        <tr>
+            <td>Votre Adresse : {{app.user.adresse}}     </td>
+        </tr>
+        <tr>
+            <td>Votre Code Postal : {{app.user.cpost}}     </td>
+        </tr>
+        <tr>
+            <td>Votre Ville :   {{app.user.ville}}   </td>
+        </tr>
+    <tbody>
+        <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<p><a href="{{ path('app_achat')}}">Modifier Vos coordonnées de Livraion</a></p>
+
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Ref</th>
+				<th>Marque</th>
+				<th>Description</th>
+				<th>Quantité</th>
+				<th>Moins</th>
+				<th>Plus</th>				
+				<th>Img</th>
+				<th>Prix_unit</th>
+				<th>Prix_Total</th>			
+				
+
+				
+
+			</tr>
+		</thead>
+		<tbody>
+
+
+			
+			{% for row in panier %}
+			
+				<tr>
+					
+
+					<td>{{ row['produit'].id }}</td>
+					<td>{{ row['produit'].ref }}</td>
+					<td>{{ row['produit'].marque }}</td>
+					<td>{{ row['produit'].titre }}</td>
+					<td>{{ row ['quantity'] }}</td>
+					<td><a href="{{ path('app_retire_quantity', {'id': row ['produit'].id }) }}">-</a></td>
+					<td><a href="{{ path('app_add_panier', {'id': row ['produit'].id }) }}">+</a></td>
+					<td><img src="{{ asset('images/' ~ row ['produit'].img ) }}" alt="" style="width:60px"></td>	
+
+					<td>{{ row ['produit'].prixUnit }} €</td>
+					<td>{{ row ['total'] }} €</td>	
+
+
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="9">no records found</td>
+				</tr>
+			{% endfor %}
+
+
+
+		</tbody>
+	</table>
+
+{# todo afficher format : 0000.00  #}
+<p>Total Quantité Panier : {{ total}}</p>
+<p>Total Prix Panier : {{ totalpx}} €</p>
+
+<p><a href="">Modifier Votre Commande</a></p>
+<p><a href="{{ path('app_new_commande')}}">Confirmer Votre Commande</a></p>
+
+
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PanierController!
+{% endblock %}
+
+{% block body %}
+
+	<h1>Votre Panier</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Ref</th>
+				<th>Marque</th>
+				<th>Description</th>
+				<th>Quantité</th>
+				<th>Moins</th>
+				<th>Plus</th>				
+				<th>Img</th>
+				<th>Prix_unit</th>
+				<th>Prix_Total</th>				
+				<th>Actions</th>
+
+				
+
+			</tr>
+		</thead>
+		<tbody>
+
+
+			{# {% for key,val in panier %} on remplace par les valeurs du detail panier #}
+			{% for row in panier %}
+			{# {% for key,val in panier %} #}
+				<tr>
+					{# <td>{{ key }}</td> #}
+					{# <td>{{ val }}</td> #}
+
+					<td>{{ row['produit'].id }}</td>
+					<td>{{ row['produit'].ref }}</td>
+					<td>{{ row['produit'].marque }}</td>
+					<td>{{ row['produit'].titre }}</td>
+					<td>{{ row ['quantity'] }}</td>
+					<td><a href="{{ path('app_retire_quantity', {'id': row ['produit'].id }) }}">-</a></td>
+					<td><a href="{{ path('app_add_panier', {'id': row ['produit'].id }) }}">+</a></td>
+					<td><img src="{{ asset('images/' ~ row ['produit'].img ) }}" alt="" style="width:60px"></td>	
+
+					<td>{{ row ['produit'].prixUnit }} €</td>
+					<td>{{ row ['total'] }} €</td>				
+
+					<td>						
+						{# <p><a href="{{path('app_add_panier', {'id': key})}}">+1</a></p>					
+						<p><a href="{{ path('app_retire_quantity', {'id': key}) }}">-1</a></p> #}
+
+							{#Pour afficher on remplace par  #}
+
+						
+						
+						
+
+						
+						
+
+						<p><a href="{{ path('app_del_produit_panier', {'id': row ['produit'].id}) }}">Supprimer</a></p>
+					</td>
+                    {# <td>{{ produit.marque }}</td>    #}
+
+					{# <td><img src="{{ asset('images/' ~ produit.img ) }}" alt="" style="width:60px"></td>
+					                <td>{{ produit.prixUnit }}</td>
+					                <td>{{ produit.quantity }}</td>
+					                <td>{{ produit.ref }}</td>
+					                <td>{{ produit.marque }}</td>                 
+					                <td>{{ produit.description }}</td>                   #}
+
+
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="9">no records found</td>
+				</tr>
+			{% endfor %}
+
+
+
+		</tbody>
+	</table>
+
+{# todo afficher format : 0000.00  #}
+<p>Total Quantité Panier : {{ total}}</p>
+<p>Total Prix Panier : {{ totalpx}} €</p>
+
+<p><a href="">Supprimer Panier</a></p>
+<p><a href="{{ path('app_achat')}}">Confirmer Panier</a></p>
+
+	
+{% endblock %}

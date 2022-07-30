@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Carrousel{% endblock %}
+
+{% block body %}
+    <h1>Create new Carrousel</h1>
+
+    {{ include('carrousel/_form.html.twig') }}
+
+    <a href="{{ path('app_carrousel_index') }}">back to list</a>
+{% endblock %}

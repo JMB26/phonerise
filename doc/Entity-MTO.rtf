@@ -1,0 +1,392 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1036{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\ul\b\f0\fs22\lang12 Liste des commandes console pour gerer les commandes\ulnone\b0  \par
+\par
+$ symfony console make:entity commande\par
+\par
+ created: src/Entity/Commande.php\par
+ created: src/Repository/CommandeRepository.php\par
+ \par
+ Entity generated! Now let's add some fields!\par
+ You can always add more fields later manually or by re-running this command.\par
+\par
+ New property name (press <return> to stop adding fields):\par
+ > user\par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ > ManyToOne  \par
+ManyToOne\par
+7moOne\par
+ What class should this entity be related to?:\par
+ > User\par
+User\par
+\par
+ Is the Commande.user property allowed to be null (nullable)? (yes/no) [yes\par
+m]:\par
+ >\par
+\par
+ Do you want to add a new property to User so that you can access/update Commande objects\par
+ from it - e.g. $user->getCommandes()? (yes/no) [yes]:\par
+ >\par
+\par
+ A new property will also be added to the User class so that you can access the related Commande objects from it. \par
+\par
+ New field name inside User [commandes]:\par
+ >\par
+\par
+ updated: src/Entity/Commande.php\par
+ updated: src/Entity/User.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ > date_commande\par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ > datetime\par
+datetime\par
+49m\par
+ Can this field be null in the database (nullable) (yes/no) [no]:\par
+ >\par
+\par
+ updated: src/Entity/Commande.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ > nom\par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ >\par
+\par
+\par
+ Field length [255]:\par
+ >\par
+\par
+ Can this field be null in the database (nullable) (yes/no) [no]:\par
+ >\par
+\par
+ updated: src/Entity/Commande.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ > email        \par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ >\par
+\par
+\par
+ Field length [255]:\par
+ >\par
+\par
+ Can this field be null in the database (nullable) (yes/no) [no]:\par
+ >\par
+\par
+ updated: src/Entity/Commande.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ > adresse\par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ > \par
+\par
+\par
+ Field length [255]:\par
+ > \par
+\par
+ Can this field be null in the database (nullable) (yes/no) [no]:\par
+ > \par
+\par
+ updated: src/Entity/Commande.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ > total\par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ > float\par
+float\par
+\par
+ Can this field be null in the database (nullable) (yes/no) [no]:\par
+ >\par
+\par
+ updated: src/Entity/Commande.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ > exped\par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ > boolean\par
+boolean\par
+49m\par
+ Can this field be null in the database (nullable) (yes/no) [no]:\par
+ >\par
+\par
+ updated: src/Entity/Commande.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ >\par
+\par
+\par
+           \par
+  Success! \par
+           \par
+\par
+ Next: When you're ready, create a migration with php bin/console make:migration\par
+\par
+\par
+Philiance@DESKTOP-DELL MINGW64 /c/wamp64/www/phonerise (main|REBASE)\par
+$ symfony console d:s:u --force \par
+\par
+ Updating database schema...\par
+\par
+     2 queries were executed\par
+\par
+\par
+ [OK] Database schema updated successfully!\par
+\par
+\par
+\par
+Philiance@DESKTOP-DELL MINGW64 /c/wamp64/www/phonerise (main|REBASE)\par
+$ symfony console make:entity detailcommande\par
+\par
+ created: src/Entity/Detailcommande.php\par
+ created: src/Repository/DetailcommandeRepository.php\par
+ \par
+ Entity generated! Now let's add some fields!\par
+ You can always add more fields later manually or by re-running this command.\par
+\par
+ New property name (press <return> to stop adding fields):\par
+ > commande\par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ > ManyToOne\par
+ManyToOne\par
+7moOne\par
+ What class should this entity be related to?:\par
+ > Commandec \par
+Commandec\par
+e\par
+                                                                                                                        \par
+9m\par
+ [ERROR] Unknown class "Commandec"                                                                                      \par
+9m\par
+                                                                                                                        \par
+9m\par
+\par
+ What class should this entity be related to?:\par
+ > Commande\par
+Commande\par
+e\par
+ Is the Detailcommande.commande property allowed to be null (nullable)? (yes/no) [\par
+33myes]:\par
+ > no\par
+\par
+ Do you want to add a new property to Commande so that you can access/update Detailcommande\par
+2m objects from it - e.g. $commande->getDetailcommandes()? (yes/no) [yes]:\par
+ >\par
+\par
+ A new property will also be added to the Commande class so that you can access the related Detailcommande objects\par
+ from it.\par
+\par
+ New field name inside Commande [detailcommandes]:\par
+ >\par
+\par
+ Do you want to activate orphanRemoval on your relationship?\par
+ A Detailcommande is "orphaned" when it is removed from its related Commande.\par
+ e.g. $commande->removeDetailcommande($detailcommande)\par
+\par
+ NOTE: If a Detailcommande may *change* from one Commande to another, answer "no".\par
+\par
+ Do you want to automatically delete orphaned App\\Entity\\Detailcommande objects (orphanRemoval)? (yes/no)\par
+m [no]:\par
+ > yes\par
+\par
+ updated: src/Entity/Detailcommande.php\par
+ updated: src/Entity/Commande.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ > titre\par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ >\par
+\par
+\par
+ Field length [255]:\par
+ >\par
+\par
+ Can this field be null in the database (nullable) (yes/no) [no]:\par
+ >\par
+\par
+ updated: src/Entity/Detailcommande.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ > quantity\par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ > integer\par
+integer\par
+;49m\par
+ Can this field be null in the database (nullable) (yes/no) [no]:\par
+ >\par
+\par
+ updated: src/Entity/Detailcommande.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ > prix_unit\par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ > float  \par
+float\par
+\par
+ Can this field be null in the database (nullable) (yes/no) [no]:\par
+ >\par
+\par
+ updated: src/Entity/Detailcommande.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ > total\par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ > float  \par
+float\par
+\par
+ Can this field be null in the database (nullable) (yes/no) [no]:\par
+ >\par
+\par
+ updated: src/Entity/Detailcommande.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ > ref\par
+\par
+ Field type (enter ? to see all types) [string]:\par
+ >\par
+\par
+\par
+ Field length [255]:\par
+ >\par
+\par
+ Can this field be null in the database (nullable) (yes/no) [no]:\par
+ > yes\par
+\par
+ updated: src/Entity/Detailcommande.php\par
+\par
+ Add another property? Enter the property name (or press <return> to stop adding fields):\par
+ >\par
+\par
+\par
+           \par
+  Success! \par
+           \par
+\par
+ Next: When you're ready, create a migration with php bin/console make:migration\par
+\par
+\par
+Philiance@DESKTOP-DELL MINGW64 /c/wamp64/www/phonerise (main|REBASE)\par
+$ symfony console d:s:u --force\par
+\par
+ Updating database schema...\par
+\par
+     2 queries were executed\par
+\par
+\par
+ [OK] Database schema updated successfully!\par
+\par
+\par
+\par
+Philiance@DESKTOP-DELL MINGW64 /c/wamp64/www/phonerise (main|REBASE)\par
+$ symfony console make:crud Commande\par
+\par
+ Choose a name for your controller class (e.g. CommandeController) [CommandeController]:\par
+ >\par
+\par
+ Do you want to generate tests for the controller?. [Experimental] (yes/no) [no]:\par
+ > \par
+\par
+ created: src/Controller/CommandeController.php\par
+ created: src/Form/CommandeType.php\par
+ created: templates/commande/_delete_form.html.twig\par
+ created: templates/commande/_form.html.twig\par
+ created: templates/commande/edit.html.twig\par
+ created: templates/commande/index.html.twig\par
+ created: templates/commande/new.html.twig\par
+ created: templates/commande/show.html.twig\par
+\par
+\par
+  Success!\par
+\par
+\par
+ Next: Check your new CRUD by going to /commande/\par
+\par
+Philiance@DESKTOP-DELL MINGW64 /c/wamp64/www/phonerise (main|REBASE)\par
+$ symfony console make:crud Detailcommande\par
+\par
+ Choose a name for your controller class (e.g. DetailcommandeController) [DetailcommandeController]:\par
+ > \par
+\par
+ Do you want to generate tests for the controller?. [Experimental] (yes/no) [no]:\par
+ >\par
+\par
+ created: src/Controller/DetailcommandeController.php\par
+ created: src/Form/DetailcommandeType.php\par
+ created: templates/detailcommande/_delete_form.html.twig\par
+ created: templates/detailcommande/_form.html.twig\par
+ created: templates/detailcommande/edit.html.twig\par
+ created: templates/detailcommande/index.html.twig\par
+ created: templates/detailcommande/new.html.twig\par
+ created: templates/detailcommande/show.html.twig\par
+\par
+ \par
+  Success! \par
+ \par
+\par
+ Next: Check your new CRUD by going to /detailcommande/\par
+\par
+Philiance@DESKTOP-DELL MINGW64 /c/wamp64/www/phonerise (main|REBASE)\par
+$ \par
+$ symfony console make:controller achat\par
+\par
+ created: src/Controller/AchatController.php\par
+ created: templates/achat/index.html.twig\par
+\par
+\par
+  Success!\par
+\par
+\par
+ Next: Open your new controller class and add some pages!\par
+\par
+Philiance@DESKTOP-DELL MINGW64 /c/wamp64/www/phonerise (main|REBASE)\par
+$ symfony console make:form confirmeUser User \par
+\par
+ created: src/Form/ConfirmeUserType.php\par
+\par
+ \par
+  Success! \par
+ \par
+\par
+ Next: Add fields to your form and start using it.\par
+ Find the documentation at {{\field{\*\fldinst{HYPERLINK https://symfony.com/doc/current/forms.html }}{\fldrslt{https://symfony.com/doc/current/forms.html\ul0\cf0}}}}\f0\fs22\par
+\par
+Philiance@DESKTOP-DELL MINGW64 /c/wamp64/www/phonerise (main|REBASE)\par
+$\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+}
+ 

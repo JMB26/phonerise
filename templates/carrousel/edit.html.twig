@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Carrousel{% endblock %}
+
+{% block body %}
+    <h1>Edit Carrousel</h1>
+
+    {{ include('carrousel/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_carrousel_index') }}">back to list</a>
+
+    {{ include('carrousel/_delete_form.html.twig') }}
+{% endblock %}

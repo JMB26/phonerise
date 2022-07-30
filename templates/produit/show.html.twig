@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+    <h1>Produit</h1>
+
+    <div class="row">
+        <div class="col-8">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ produit.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Titre</th>
+                        <td>{{ produit.titre }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ produit.description }}</td>
+                    </tr>
+                    <tr>
+                        <th>Img</th>
+                        <td>{{ produit.img }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prix_unit</th>
+                        <td>{{ produit.prixUnit }}</td>
+                    </tr>
+                    <tr>
+                        <th>Quantity</th>
+                        <td>{{ produit.quantity }}</td>
+                    </tr>
+                    <tr>
+                        <th>Ref</th>
+                        <td>{{ produit.ref }}</td>
+                    </tr>
+                    <tr>
+                        <th>Marque</th>
+                        <td>{{ produit.marque }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-4">
+            {{form_start(form)}}            
+            {{form_widget(form)}}            
+
+            <button class="btn">{{ button_label|default('Save')}}</button>
+            {{form_end(form)}}  
+            
+            <hr>
+
+            {% for photo in produit.photos %}
+              <div><img src="{{ asset( 'images/' ~ photo.name ) }}" alt="" style="width:100px"></div>
+              {{ include('photos/_delete_form.html.twig') }}
+              
+               <hr>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    
+
+
+
+
+    <a href="{{ path('app_produit_index') }}">back to list</a>
+
+    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
+
+    {{ include('produit/_delete_form.html.twig') }}
+{% endblock %}

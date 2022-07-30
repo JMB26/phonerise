@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+ 
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="background-color: grey" >
+	<div class="carousel-indicators">
+		<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+		<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+		<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+	</div>
+	<div class="carousel-inner">
+
+    {% for item in carrousel %}
+
+        {% if loop.index == 1 %}
+            <div class="carousel-item active">
+        {% else %}
+            <div class="carousel-item">
+        {% endif %}
+           <img src="{{ asset('images/' ~ item.name ) }}" class="d-block w-100" alt=" {{item.alt}} ">
+            <div class="carousel-caption d-none d-md-block">             
+                <h5>{{item.titre}}</h5>
+                <p>{{item.description}}</p>
+            </div>
+        </div>
+    {% endfor %}		
+	</div>
+	<button class="carousel-control-prev"  type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+		<span style='background-color:blue' class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually" style='color:blue'>{{ "&#32" }}Previous</span>
+	</button>
+
+	<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="visually" style='color:blue' > Next </span>
+		<span style='background-color:blue' class="carousel-control-next-icon" aria-hidden="true"></span>
+	</button>	
+</div>
+
+
+
+    <div class="container">
+    <h2 class="titre">Nos Meilleures Ventes</h2>
+    
+    <hr>
+<a href="{{ path('app_test_mail') }}">test mail</a>
+
+    <div>
+            {% for category in categorys %}
+
+                <a class="btn btn-info" href="{{path('app_filtre_produit', {'id': category.id})}}" >{{category.name}}</a> 
+                
+            {% endfor %} 
+
+    </div>
+
+    <hr>
+
+        <div class="row center">
+            {% for produit in produits %}  
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{asset('images/' ~ produit.img)}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{produit.titre}}</h5>
+                            <p class="card-text">{{produit.description}}</p>
+                            <p class="card-text">Prix : {{produit.prixunit}}€</p>
+                            <a href="{{path('app_detail_produit', {'id': produit.id})}}" class="btn btn-primary">DETAIL</a>
+                            <a href="{{path('app_add_panier', {'id': produit.id})}}" class="btn btn-primary">COMMANDER</a>
+                        </div>
+                    </div>
+                </div>               
+            {% endfor %}
+
+        </div>
+    </div>
+    
+{% endblock %}
+
+
+

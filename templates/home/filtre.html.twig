@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+
+	
+		
+
+		<div class="container">
+			<h2 class="titre">Nos Meilleures Ventes</h2>
+
+			<hr>
+
+			<div>
+				{% for category in categorys %}
+
+					<a class="btn btn-info" href="{{path('app_filtre_produit', {'id': category.id})}}" >{{category.name}}</a> 
+
+				{% endfor %}
+
+			</div>
+
+			<hr>
+
+			<div class="row center">
+				{% for produit in produits %}
+					<div class="col-xs-12 col-md-6 col-lg-4">
+						<div class="card" style="width: 18rem;">
+							<img src="{{asset('images/' ~ produit.img)}}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">{{produit.titre}}</h5>
+								<p class="card-text">{{produit.description}}</p>
+								<p class="card-text">Prix :
+									{{produit.prixunit}}€</p>
+								<a href="{{path('app_detail_produit', {'id': produit.id})}}" class="btn btn-primary">DETAIL</a>
+								<a href="{{path('app_add_panier', {'id': produit.id})}}" class="btn btn-primary">COMMANDER</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+
+			</div>
+		</div>
+
+	{% endblock %}

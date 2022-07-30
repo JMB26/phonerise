@@ -1,0 +1,20 @@
+1 créer un projet symfony 
+2 config du projet (boostrap + formulaire ,DATABASE_URL « .env »,includes)
+3 login,logout et inscription 
+4 category +crud
+5 produit + crud (MTO avec la table Category
+6 homePage 
+7 page detail 
+8 panier 
+9 commande
+10 paiement (stripe)
+11 profil
+
+Titre (string
+Description (text
+Image (string
+Category( MTO => Category
+Prix_unit = float
+Quantity= integer 
+Ref= string  nullable 
+marque = string

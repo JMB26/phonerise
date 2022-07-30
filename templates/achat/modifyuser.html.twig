@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coordonnées Livraison{% endblock %}
+
+{% block body %}
+    <h1>Coordonnées Livraison</h1>
+
+    {{ form_start(form) }}
+
+       {{form_row(form.nom)}}
+       {{form_row(form.prenom)}}      
+       {{form_row(form.adresse)}}
+       {{form_row(form.cpost)}}
+       {{form_row(form.ville)}}
+
+       <button type="submit" class="btn">Valider</button>
+    {{ form_end(form) }}
+{% endblock %}
